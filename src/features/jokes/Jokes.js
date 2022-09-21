@@ -2,43 +2,41 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
-import { get_jokes } from './jokesSlice';
+
 import { FlatList } from 'react-native-web';
+import { getJokes } from './jokesSlice';
 
 export default function Jokes() {
     const {jokes}  = useSelector(state => state.JokesSlice);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(get_jokes())
+        dispatch(getJokes())
 
     }, []);
 
+    // const handleRefresh = () => {
+    //   dispatch(get)
+     
+
+    // }
+
 
   return (
-    <View style={{flex: 1, marginTop: 44, paddingHorizontal: 20}}>
-    <Text style={{fontSize: 22}}>Posts</Text>
-    <View style={{flex: 1, marginTop: 12}}>
+    <View style={{ flex: 1, padding: 24 }}>
+    
         <FlatList
-            data = {jokes}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => {
-              return (
-                <View>
-                     <Text style={{fontSize: 22, paddingRight: 16}}>
-                      {item.joke}
-                    </Text>
-                   
-                  
-                </View>
-              )
-
-            }}
-            />
-        
-     
+          data={jokes}
+          
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <Text key={item.key}> {item.id}{item.title} </Text>
+       
+          )}
+        />
+      
     </View>
-  </View>
+
   )
 }
 
