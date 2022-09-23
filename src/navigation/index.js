@@ -1,27 +1,24 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, TabActions } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
-import CategoryScreen from '../screens/CategoryScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from '../screens/LoginScreen';
+import { JokesScreen } from '../screens/JokesScreen';
+import { LoginScreen } from '../screens/LoginScreen';
 
-
-
-const Tab= createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+export const RootNavigator = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='login' >
+            <Stack.Screen name='login' component={LoginScreen} options={{ headerShown: false }} />
+            <Stack.Screen name='home' component={HomeScreen} options={{ headerShown: false }} />
+            
 
+            </Stack.Navigator>
 
-export const RoootNavigator = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Screen name='login' component={LoginScreen}/>
-      <Tab.Navigator>
-        <Tab.Screen name='home' component={HomeScreen}/>
-        <Tab.Screen name='category' component={CategoryScreen}/>
-      </Tab.Navigator>
+        </NavigationContainer>
+    
         
-        
-    </NavigationContainer>
-  )
+       
+    )
 }

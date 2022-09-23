@@ -1,20 +1,19 @@
-import { View, Text, SafeAreaView } from 'react-native'
-import React from 'react'
-import { useLayoutEffect } from 'react'
-import Jokes from '../features/jokes/Jokes';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { View } from "react-native-web";
+import { CategoryScreen } from "./CategoryScreen";
+import { JokesScreen } from "./JokesScreen";
 
-export default function HomeScreen({navigation}) {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false
 
-    });
-  })
-  return (
-    <SafeAreaView>
-      <Jokes/>
+const Tab = createBottomTabNavigator();
+export default function HomeScreen() {
 
-    </SafeAreaView>
-  
+  return (    
+    <Tab.Navigator>
+      <Tab.Screen name="jokes" component={JokesScreen}  options={{ headerShown: false }} />
+      <Tab.Screen name="category" component={CategoryScreen} options={{ headerShown: false }}  />
+    
+
+    </Tab.Navigator>
+ 
   )
 }

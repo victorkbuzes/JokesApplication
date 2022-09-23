@@ -7,7 +7,7 @@ import { FlatList } from 'react-native-web';
 import { getJokes } from './jokesSlice';
 
 export default function Jokes() {
-    const {jokes}  = useSelector(state => state.JokesSlice);
+    const {jokes}  = useSelector(state => state.jokesReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,11 +15,7 @@ export default function Jokes() {
 
     }, []);
 
-    // const handleRefresh = () => {
-    //   dispatch(get)
-     
-
-    // }
+ 
 
 
   return (
