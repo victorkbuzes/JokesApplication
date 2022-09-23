@@ -2,6 +2,8 @@ import {TextInput, Text, Button, Alert, View, StyleSheet} from 'react-native';im
 
 import * as yup from 'yup'
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../features/user/userSlice';
 
 
 const loginValidationSchema = yup.object().shape({
@@ -19,10 +21,14 @@ const inputStyle = {
 };
 
 export const LoginScreen = ({navigation}) => {
+  const dispatch = useDispatch()
+
 
   const onSubmit = values => {
-    console.log("fom values", values);
+    // console.log("fom values", values);
+    dispatch(userActions.setUser(values))
     navigation.navigate("home", {})
+
   }
   return (
     

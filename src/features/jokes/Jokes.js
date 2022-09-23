@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { FlatList } from 'react-native-web';
 import { getJokes } from './jokesSlice';
 
+
 export default function Jokes() {
     const {jokes}  = useSelector(state => state.jokesReducer);
     const dispatch = useDispatch();
@@ -24,7 +25,9 @@ export default function Jokes() {
         <FlatList
           data={jokes}
           
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(_, index) => {
+            return index.toString();
+          }} 
           renderItem={({ item }) => (
             <Text key={item.key}> {item.id}{item.title} </Text>
        
