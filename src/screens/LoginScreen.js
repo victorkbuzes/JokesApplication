@@ -1,9 +1,10 @@
-import {TextInput, Text, Button, Alert, View, StyleSheet} from 'react-native';import React from 'react'
+import {TextInput, Text, Button,  View, StyleSheet} from 'react-native';import React from 'react'
 
 import * as yup from 'yup'
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { userActions } from '../features/user/userSlice';
+import COLORS from '../constants/colors';
 
 
 const loginValidationSchema = yup.object().shape({
@@ -27,7 +28,7 @@ export const LoginScreen = ({navigation}) => {
   const onSubmit = values => {
     // console.log("fom values", values);
     dispatch(userActions.setUser(values))
-    navigation.navigate("home", {})
+    navigation.navigate("jokes", {})
 
   }
   return (
@@ -43,6 +44,9 @@ export const LoginScreen = ({navigation}) => {
             {({values,  handleChange, errors, setFieldTouched, touched, isValid, handleSubmit,
             }) => (
               <View style={styles.container}>
+                <Text style= {{ color: COLORS.black, fontSize: 40, fontWeight:'bold' , paddingBottom : 30}}>Login </Text>
+                <Text style= {{ color: COLORS.grey, fontSize: 18, fontWeight:'bold' ,   paddingBottom : 30}}>Enter Details to login </Text>
+
                 {/* name */}
                 <TextInput  style={inputStyle} 
                 onChangeText={handleChange( 'name')}

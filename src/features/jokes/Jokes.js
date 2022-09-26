@@ -3,7 +3,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 
-import { FlatList } from 'react-native-web';
 import { getJokes } from './jokesSlice';
 
 
@@ -21,18 +20,9 @@ export default function Jokes() {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
+      <Text>{jokes.value}</Text>
     
-        <FlatList
-          data={jokes}
-          
-          keyExtractor={(_, index) => {
-            return index.toString();
-          }} 
-          renderItem={({ item }) => (
-            <Text key={item.key}> {item.id}{item.title} </Text>
        
-          )}
-        />
       
     </View>
 
