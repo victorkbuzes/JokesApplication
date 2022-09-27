@@ -28,8 +28,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white", 
   }, 
   text: {
+    paddingTop: 10,
     fontSize:30,
     fontWeight: "bold",
+    color: '#4C0033',
 
 
   },
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingBottom: 10,
     paddingTop: 30,
+    color: '#25316D'
   },
   baseText: {
     fontSize:20,

@@ -1,6 +1,7 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 
 export const  JokesSlice = createSlice({
@@ -35,7 +36,7 @@ export const JOKES_ACTION_PER_CATEGORY = JokesSlice.actions
 
 export const getJokes = () => {
     return async (dispatch)  => {
-        fetch('https://api.chucknorris.io/jokes/random').then((response) => {
+      fetch('https://api.chucknorris.io/jokes/random').then((response) => {
          
             if (response.ok) {
               return response.json();
@@ -54,6 +55,7 @@ export const getJokes = () => {
                         // alert("Data saved successfully")
     
                     } catch (e) {
+                      throw new Error('Could not save data to storage key');
                         
                         
                     }
@@ -86,7 +88,14 @@ export const getJokes = () => {
 }
 export const getJokesCategory = () => {
   return async (dispatch) => { 
-    fetch('https://api.chucknorris.io/jokes/categories').then((response) => {
+    axios({
+      method: 'GET',
+      url:'https://api.chucknorris.io/jokes/categories',
+      headers: {
+        'Content-Type': 'application/json',
+        "Accept": "application/json",
+
+      },}).then((response) => {
       if(response.ok){
 
         console.log("category",response);
@@ -126,7 +135,7 @@ export const getJokesCategory = () => {
         return jsonValue != null ? JSON.parse(jsonValue) : null;
       
       } catch (e) {
-        console.log("if catch error: " , e);
+     
       }
     
 
@@ -138,6 +147,7 @@ export const getJokesCategory = () => {
 }
 export const getJokesPerCategory = ( name ) => {
   return async (dispatch) => {
+
     fetch(`https://api.chucknorris.io/jokes/random?category=${name}`).then((response) => {
 
     if (response.ok) {
@@ -180,6 +190,9 @@ export const getJokesPerCategory = ( name ) => {
   }
 
 }
+
+
+
 
 
 

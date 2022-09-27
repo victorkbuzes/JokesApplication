@@ -5,7 +5,7 @@ import { JokesScreen } from "./JokesScreen";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
-export default function HomeScreen() {
+export default function JokesAppScreen() {
 
   const homeName = "Home";
   const categoryName = "Category";

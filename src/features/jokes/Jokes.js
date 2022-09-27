@@ -20,7 +20,7 @@ export default function Jokes() {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <Text>{jokes.value}</Text>
+      <Text style={styles.baseText}>{jokes.value}</Text>
     </View>
 
   )
@@ -31,7 +31,18 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+
+      
     },
+    baseText : {
+      fontWeight : 'bold',  
+      height: 15,
+      paddingTop: 40,
+      fontSize: 20,
+      color: '#06283D'
+  
+      
+  },
  
   });
 

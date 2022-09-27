@@ -1,4 +1,4 @@
-import {TextInput, Text, Button,  View, StyleSheet} from 'react-native';import React from 'react'
+import {TextInput, Text, Button,  View, StyleSheet, TouchableOpacity, Pressable} from 'react-native';import React from 'react'
 
 import * as yup from 'yup'
 import { Formik } from 'formik';
@@ -18,7 +18,7 @@ const inputStyle = {
   borderWidth: 1,
   borderColor: '#4e4e4e',
   padding: 12,
-  marginBottom: 5,
+  marginBottom: 15,
 };
 
 export const LoginScreen = ({navigation}) => {
@@ -45,14 +45,13 @@ export const LoginScreen = ({navigation}) => {
             }) => (
               <View style={styles.container}>
                 <Text style= {{ color: COLORS.black, fontSize: 40, fontWeight:'bold' , paddingBottom : 30}}>Login </Text>
-                <Text style= {{ color: COLORS.grey, fontSize: 18, fontWeight:'bold' ,   paddingBottom : 30}}>Enter Details to login </Text>
+                <Text style= {{ color: '#4C0033', fontSize: 18, fontWeight:'bold' ,   paddingBottom : 30}}>Enter Details to login </Text>
 
                 {/* name */}
                 <TextInput  style={inputStyle} 
                 onChangeText={handleChange( 'name')}
                 value= {values.name}
-                onBlur={() => setFieldTouched('name')} placeholder="Name"
-              />
+                onBlur={() => setFieldTouched('name')} placeholder="Enter your username" />
               {touched.name && errors.name && (
                 <Text style={{fontSize: 12, color: '#FF0D10'}}>
                     {errors.name}
@@ -66,7 +65,7 @@ export const LoginScreen = ({navigation}) => {
               <TextInput  style={inputStyle} 
                 onChangeText={handleChange( 'email')}
                 value= {values.email}
-                onBlur={() => setFieldTouched('email')} placeholder="E-mail"
+                onBlur={() => setFieldTouched('email')} placeholder="enter your email"
               />
               {touched.email && errors.email && (
                 <Text style={{fontSize: 12, color: '#FF0D10'}}>
@@ -79,14 +78,21 @@ export const LoginScreen = ({navigation}) => {
 
              value = {values.password}
                 // handleChange('password')}}
-                    placeholder="Password" onBlur={() => setFieldTouched('password')} secureTextEntry={true}
+                    placeholder="enter password" onBlur={() => setFieldTouched('password')} secureTextEntry={true}
             />
               {touched.password && errors.password && (
               <Text style={{fontSize: 12, color: '#FF0D10'}}>
               {errors.password}
               </Text>
               )}
-              <Button color="#3740FE" title="Submit" disabled={!isValid} onPress={handleSubmit }/>
+              <Button color="#25316D"    title="Submit" disabled={!isValid} onPress={handleSubmit }/>
+          
+{/* 
+              <Pressable style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.text}>Hell</Text>
+              </Pressable> */}
+
+
               </View>
         )}
 
@@ -105,16 +111,19 @@ const styles = StyleSheet.create({
       padding: 10,
       backgroundColor: "white",
   
-      
-      
 
   },
+  text: {
+  },
+
   inputContainer: {
-      width: 300
+      width: 600,
+      
   },
   button: {
-      width: 200,
+   
       marginTop: 10,
+      color :"yellow", 
 
    },
  

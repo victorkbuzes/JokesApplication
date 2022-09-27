@@ -28,12 +28,13 @@ const styles = StyleSheet.create({
       backgroundColor: "white",
   },
   title: {
-    fontSize: 22,
+    fontSize: 25,
     fontWeight: "bold",
-    paddingTop:30
+    paddingTop:30,
+    color: '#4C0033',
   },
   text: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
     paddingTop:30,
     paddingBottom:30

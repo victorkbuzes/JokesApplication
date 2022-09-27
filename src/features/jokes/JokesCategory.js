@@ -17,11 +17,11 @@ export const JokesCategory = () => {
     
     }, []);
 
-    const handleChange =(name) => {
-      dispatch(getJokesPerCategory(name))
+    // const handleChange =(name) => {
+    //   dispatch(getJokesPerCategory(name))
       
 
-    }
+    // }
     useEffect(() => {
       if (categoryvalue) {
         dispatch(getJokesPerCategory(categoryvalue)) 
