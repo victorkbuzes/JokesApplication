@@ -28,7 +28,9 @@ export const JokesCategory = () => {
       }
     }, [categoryvalue]);
   return (
-      <><DropDownPicker
+      <><DropDownPicker  textStyle={{fontSize: 20, fontWeight: 'bold'}} 
+      placeholder="Select a category"
+      
       
       open={open}
       value={categoryvalue}
@@ -54,6 +56,9 @@ const styles =  StyleSheet.create({
         fontSize: 25,
         
     },
+    dropdown: {
+      
+    }
    
 
 })

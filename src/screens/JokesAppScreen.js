@@ -33,10 +33,10 @@ export default function JokesAppScreen() {
      })}
 
      tabBarOptions = {{
-      activeTintColor: 'tomato',
+      activeTintColor: '#EB1D36',
       inactiveTintColor: 'grey',
-      labelStyle: {  fontSize: 20 , fontWeight: 'bold' },
-      style: { padding: 10, height: 70 },
+      labelStyle: {  fontSize: 28 , fontWeight: 'bold' },
+      style: { padding: 16, height: 80 },
 
      }}>
 

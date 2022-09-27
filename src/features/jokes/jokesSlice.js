@@ -36,6 +36,8 @@ export const JOKES_ACTION_PER_CATEGORY = JokesSlice.actions
 
 export const getJokes = () => {
     return async (dispatch)  => {
+
+  
       fetch('https://api.chucknorris.io/jokes/random').then((response) => {
          
             if (response.ok) {
@@ -55,14 +57,9 @@ export const getJokes = () => {
                         // alert("Data saved successfully")
     
                     } catch (e) {
-                      throw new Error('Could not save data to storage key');
-                        
-                        
+                      throw new Error('Could not save data to storage key');  
                     }
-
-                    
                   }
-            // Do something with the response
           })
 
           

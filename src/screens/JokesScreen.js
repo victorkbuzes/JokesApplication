@@ -5,13 +5,15 @@ import { useSelector } from 'react-redux'
 
 
 export const JokesScreen = () => {
+
   const {name} = useSelector(state => state.userReducer)
+
 
   return (
     <View style ={styles.container} >
       <Text  style={styles.text} > Hello {name}</Text>
       <Text style={styles.jokes} >Chuck Norris Jokes Application</Text>
-      <Text style={styles.baseText} >The Joke is</Text>
+      
 
       <Jokes  />
       

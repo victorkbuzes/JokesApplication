@@ -85,7 +85,7 @@ export const LoginScreen = ({navigation}) => {
               {errors.password}
               </Text>
               )}
-              <Button color="#25316D"    title="Submit" disabled={!isValid} onPress={handleSubmit }/>
+              <Button color="#25316D"  testID='loginButton'   title="Submit" disabled={!isValid} onPress={handleSubmit }/>
           
 {/* 
               <Pressable style={styles.button} onPress={handleSubmit}>
