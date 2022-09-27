@@ -21,9 +21,6 @@ export default function Jokes() {
   return (
     <View style={{ flex: 1, padding: 24 }}>
       <Text>{jokes.value}</Text>
-    
-       
-      
     </View>
 
   )
@@ -35,6 +32,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
+ 
   });
 
 

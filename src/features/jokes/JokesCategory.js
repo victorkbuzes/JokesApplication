@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import {  Text, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import  DropDownPicker from 'react-native-dropdown-picker' 
@@ -29,15 +29,13 @@ export const JokesCategory = () => {
     }, [categoryvalue]);
   return (
       <><DropDownPicker
-      style={{
-        alignItems: "center",
-        justifyContent: "center"
-      }}
+      
       open={open}
+      value={categoryvalue}
       items={jokesCategory}
       setOpen={setOpen}
       setValue={setCategoryValue}
-      setItems={categoryvalue} /><Text>{jokesPerCategory.value}</Text></>
+      setItems={categoryvalue} /><Text style={styles.baseText}>{jokesPerCategory.value}</Text></>
      
   )
 
@@ -48,15 +46,12 @@ const styles =  StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        
-        
-
     },
     baseText : {
         fontWeight : 'bold',  
-    
         height: 15,
-        
+        paddingTop: 40,
+        fontSize: 25,
         
     },
    

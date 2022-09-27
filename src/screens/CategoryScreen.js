@@ -1,4 +1,4 @@
-import { View, Text  } from 'react-native'
+import { View, Text, StyleSheet  } from 'react-native'
 import React from 'react'
 import { JokesCategory } from '../features/jokes/JokesCategory'
 
@@ -8,16 +8,37 @@ export const CategoryScreen = () => {
 
 
   return (
-    <View>
-      <Text>Get Jokes Per Category</Text>
+    <View style={styles.container}>
+      <Text style= {styles.title}>Get Jokes Per Category</Text>
 
-      <Text>Select Category from the Picker</Text>
+      <Text style={styles.text}>Select Category from the Picker</Text>
      
       <JokesCategory/>
- 
-     
-   
 
     </View>
   )
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      alignItems: "center",
+      padding: 10,
+      backgroundColor: "white",
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    paddingTop:30
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: "bold",
+    paddingTop:30,
+    paddingBottom:30
+
+  }
+
+
+})
